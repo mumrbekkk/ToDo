@@ -1,0 +1,19 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+        {% if category == 'register_error' %}
+            <p class="error-messages">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+    {{ render_form(register_form) }}
+</div>
+
+{% endblock %}
+
+

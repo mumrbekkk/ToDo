@@ -1,0 +1,151 @@
+/* General Styling */
+.templates-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+/* Templates Container */
+.templates-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Card Column Styling */
+.templates-container .col-md-4 {
+    display: flex;
+    justify-content: center; /* Centers the card in the column */
+    flex-grow: 1;
+}
+
+/* Card Styling */
+.template-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Ensure full width within column */
+    max-width: 350px; /* Optional: Set a max width for card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add hover effect transitions */
+}
+
+.template-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Link Styling */
+.card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color */
+    flex-grow: 1; /* Allow the link to fill vertical space */
+}
+
+/* Heading Styling */
+.template-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Prevent overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}
+
+/* Description Styling with Truncation */
+.template-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    max-height: 4.2em; /* Limit to 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limits to 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+/* Actions Section */
+.template-card .actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Add Template Button Container */
+.add-template-container {
+    margin-top: 20px;
+}
+
+.add-template-container .success-messages {
+    font-size: 16px;
+    color: green;
+    margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .template-card {
+        margin-bottom: 20px;
+    }
+
+    .templates-container {
+        justify-content: center; /* Center cards on smaller screens */
+    }
+}

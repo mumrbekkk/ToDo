@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}My Templates{% endblock %}
+
+{% block css %}
+<link href="static/templates.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section id="templates" class="templates-section">
+    {% if current_user.is_authenticated %}
+        <h2 class="section-title">My Templates</h2>
+        <div class="container">
+            <div class="row templates-container">
+                {% for template in templates %}
+                    {% if template.user_id == current_user.id %}
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="template-card">
+                            <a href="{{ url_for('my_template', template_id=template.id)}}" class="card-link">
+                                <h3>{{ template.name }}</h3>
+                                <p>{{ template.description }}</p>
+                            </a>
+                            <div class="actions">
+                                <form method="post" action="{{ url_for('my_templates') }}">
+                                    <input type="hidden" name="template_id" value="{{ template.id }}">
+                                    <button type="submit"
+                                            name="action"
+                                            value="edit"
+                                            class="btn btn-warning">Edit
+                                    </button>
+                                    <button type="submit"
+                                            name="action"
+                                            value="delete"
+                                            class="btn btn-danger">Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                <div class="add-template-container text-center my-4">
+                    <p class="success-messages">{{ get_flashed_messages()[0] }}</p>
+                    <a id="add-template-btn" class="btn btn-primary" href="{{ url_for('add_template') }}">+ Add New Template</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="add-template-container text-center my-4">
+            <h3 class="error-messages">Please register or log in to add a template</h3>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}
