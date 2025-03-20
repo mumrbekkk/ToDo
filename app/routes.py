@@ -1,8 +1,6 @@
-from flask import render_template, redirect, url_for, flash, request, get_flashed_messages
+from flask import render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_user, logout_user
-from typing_extensions import reveal_type
 from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms.validators import email
 
 from app.forms import *
 from app.models import *
